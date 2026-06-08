@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/featurs/auth/screen/reset_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_screen.dart';
 
 class VerifyScreen extends StatefulWidget {
-  final String email;
 
   const VerifyScreen({
     super.key,
-    required this.email
+
   });
 
   @override
@@ -17,16 +17,15 @@ class VerifyScreen extends StatefulWidget {
 }
 
 class _VerifyScreenState extends State<VerifyScreen> {
-  bool loading = false;
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScreen(
-        svgPath: 'assets/logo.svg',
-        svgHeight: 180,
-        svgWidth: 130,
+        svgPath: 'assets/logo.png',
+        svgHeight: 240,
+        svgWidth: 700,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,11 +43,13 @@ class _VerifyScreenState extends State<VerifyScreen> {
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
-              child: Text(
-                "We have sent a 6 digit code to ${widget.email}. \nPlease enter it below to verify your identity",
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
+              child: Center(
+                child: Text(
+                  "We have sent a 6 digit code to . \nPlease enter it below to verify your identity",
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ),
@@ -56,7 +57,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
             PinCodeTextField(
               length: 6,
               obscureText: false,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               keyboardType: TextInputType.number,
               animationType: AnimationType.fade,
               pinTheme: PinTheme(
@@ -98,11 +99,14 @@ class _VerifyScreenState extends State<VerifyScreen> {
               ),
             ),
             const SizedBox(height: 40),
-            loading
-                ? const Center(child: CircularProgressIndicator())
-                : CustomButton(
+            CustomButton(
               text: "Verify code",
-              onTap: (){},
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ResetScreen()),
+                );
+              },
             ),
           ],
         ),

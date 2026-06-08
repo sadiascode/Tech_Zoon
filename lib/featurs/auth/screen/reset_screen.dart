@@ -20,8 +20,8 @@ class _ResetScreenState extends State<ResetScreen> {
     return Scaffold(
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
-        svgWidth: 130,
+        svgHeight: 240,
+        svgWidth: 700,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,11 +39,13 @@ class _ResetScreenState extends State<ResetScreen> {
             const SizedBox(height: 10),
             const Padding(
               padding: EdgeInsets.only(left: 15.0),
-              child: Text(
-                "Create a new password. Ensure it differs \n        from previous ones for security",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
+              child: Center(
+                child: Text(
+                  "Create a new password. Ensure it differs \n        from previous ones for security",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ),

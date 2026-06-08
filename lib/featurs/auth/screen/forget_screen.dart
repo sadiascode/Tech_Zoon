@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/featurs/auth/screen/verify_screen.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_screen.dart';
 import '../widget/custom_textfield.dart';
@@ -12,7 +13,6 @@ class ForgetScreen extends StatefulWidget {
 }
 
 class _ForgetScreenState extends State<ForgetScreen> {
-  bool loading = false;
 
 
   @override
@@ -40,16 +40,16 @@ class _ForgetScreenState extends State<ForgetScreen> {
 
             const Padding(
               padding: EdgeInsets.only(left: 15.0),
-              child: Center(
-                child: Text(
-                  "Enter your email and we will send you a \n                  verification code.",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
+                child: Center(
+                  child: Text(
+                    "Enter your email and we will send you a \n                  verification code.",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
               ),
-            ),
             const SizedBox(height: 30),
 
             Text(
@@ -66,10 +66,13 @@ class _ForgetScreenState extends State<ForgetScreen> {
             ),
 
             const SizedBox(height: 30),
-            loading
-                ? const Center(child: CircularProgressIndicator())
-                : CustomButton(
-              text: "Send code", onTap: () {  },
+           CustomButton(
+              text: "Send code", onTap: () {
+                Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => const VerifyScreen()),
+            );},
             ),
           ],
         ),

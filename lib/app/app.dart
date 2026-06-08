@@ -7,11 +7,9 @@ class TechZoon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       title: "Tech Zoon",
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
-
     );
   }
 }

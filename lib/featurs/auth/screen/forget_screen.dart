@@ -40,11 +40,13 @@ class _ForgetScreenState extends State<ForgetScreen> {
 
             const Padding(
               padding: EdgeInsets.only(left: 15.0),
-              child: Text(
-                "Enter your email and we will send you a \n                  verification code.",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
+              child: Center(
+                child: Text(
+                  "Enter your email and we will send you a \n                  verification code.",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ),

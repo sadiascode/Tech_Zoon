@@ -50,6 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               hintText: "Enter Your Password",
               isPassword: true,
             ),
+
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

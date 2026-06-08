@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../widget/custom_screen.dart';
+import '../widget/custom_textfield.dart';
+import 'forget_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    bool rememberMe = false;
+
     return Scaffold(
       backgroundColor: const Color(0xFF0F172A),
       body: CustomScreen(
@@ -66,7 +70,7 @@ class LoginScreen extends StatefulWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const ()),
+                      MaterialPageRoute(builder: (_) => const ForgetScreen()),
                     );
                   },
                   child: const Text(

@@ -64,7 +64,12 @@ class _ResetScreenState extends State<ResetScreen> {
                 ? const Center(child: CircularProgressIndicator())
                 : CustomButton(
               text: "Reset password",
-              onTap: (){},
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LoginScreen()),
+                );
+              },
             ),
           ],
         ),

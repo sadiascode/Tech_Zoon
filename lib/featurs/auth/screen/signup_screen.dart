@@ -67,7 +67,11 @@ class _SignupScreenState extends State<SignupScreen> {
                 ? const Center(child: CircularProgressIndicator())
                 : CustomButton(
               text: "Sign Up",
-              onTap: (){},
+              onTap: (){
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginScreen()),
+              );},
             ),
           ],
         ),

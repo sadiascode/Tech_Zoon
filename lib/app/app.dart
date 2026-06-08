@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../auth/login_screen.dart';
+import '../featurs/auth/screen/login_screen.dart';
 
 class TechZoon extends StatelessWidget {
   const TechZoon({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_screen.dart';
+import '../widget/custom_textfield.dart';
 
 
 class ForgetScreen extends StatefulWidget {
@@ -11,83 +12,16 @@ class ForgetScreen extends StatefulWidget {
 }
 
 class _ForgetScreenState extends State<ForgetScreen> {
-  final emailController = TextEditingController();
   bool loading = false;
 
-  final supabase = Supabase.instance.client;
-
-  Future<void> sendResetEmail() async {
-    final email = emailController.text.trim();
-    if (email.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter your email'),
-          backgroundColor: Colors.redAccent,
-        ),
-      );
-      return;
-    }
-
-    setState(() {
-      loading = true;
-    });
-
-    try {
-      await supabase.auth.resetPasswordForEmail(email);
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Verification code sent to your email'),
-            backgroundColor: Color(0xff3CB189),
-          ),
-        );
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => VerifyScreen(email: email),
-          ),
-        );
-      }
-    } on AuthException catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(e.message),
-            backgroundColor: Colors.redAccent,
-          ),
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Unexpected error: $e'),
-            backgroundColor: Colors.redAccent,
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() {
-          loading = false;
-        });
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
-        svgWidth: 130,
+        svgHeight: 240,
+        svgWidth: 700,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,15 +61,13 @@ class _ForgetScreenState extends State<ForgetScreen> {
             const SizedBox(height: 10),
             CustomTextfield(
               hintText: "Enter your email address",
-              controller: emailController,
             ),
 
             const SizedBox(height: 30),
             loading
                 ? const Center(child: CircularProgressIndicator())
                 : CustomButton(
-              text: "Send code",
-              onTap: sendResetEmail,
+              text: "Send code", onTap: () {  },
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomScreen extends StatefulWidget {
   final String svgPath;
@@ -26,8 +25,12 @@ class _CustomScreenState extends State<CustomScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(color: Color(0xffF7F7F7)),
+          // Background
+          Container(
+            color: const Color(0xffF7F7F7),
+          ),
 
+          // SVG Image
           Positioned(
             top: 110,
             left: 10,
@@ -42,7 +45,7 @@ class _CustomScreenState extends State<CustomScreen> {
             ),
           ),
 
-
+          // Bottom Card UI
           Align(
             alignment: Alignment.bottomCenter,
             child: FractionallySizedBox(

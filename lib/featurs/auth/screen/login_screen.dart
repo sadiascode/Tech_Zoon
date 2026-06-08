@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:my_app/featurs/auth/screen/signup_screen.dart';
+import '../../../common/custom_button.dart';
 import '../widget/custom_screen.dart';
 import '../widget/custom_textfield.dart';
 import 'forget_screen.dart';
@@ -8,28 +9,34 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    bool rememberMe = false;
+  State<LoginScreen> createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends State<LoginScreen> {
+  bool rememberMe = false;
+  bool loading = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0F172A),
       body: CustomScreen(
         svgPath: 'assets/logo.png',
-        svgHeight: 180,
-        svgWidth: 130,
+        svgHeight: 240,
+        svgWidth: 700,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
               child: const Text(
-                "Welcome to Sadia Fitness Zone",
+                "Welcome to Tech Zone",
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.black87),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             const Text("Enter Email", style: TextStyle(color: Colors.black87)),
             const SizedBox(height: 6),
             CustomTextfield(
@@ -81,12 +88,14 @@ class LoginScreen extends StatefulWidget {
               ],
             ),
             const SizedBox(height: 10),
+
             loading
                 ? const Center(child: CircularProgressIndicator())
                 : CustomButton(
               text: "Sign in",
-              onTap: login,
+              onTap: () {},
             ),
+
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -99,8 +108,7 @@ class LoginScreen extends StatefulWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (_) => const ()),
+                      MaterialPageRoute(builder: (_) => const SignupScreen()),
                     );
                   },
                   child: const Text(

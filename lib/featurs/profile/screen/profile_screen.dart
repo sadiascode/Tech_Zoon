@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/featurs/auth/screen/login_screen.dart';
-import 'dart:io';
+import 'package:my_app/common/custom_color.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_edit.dart';
 import '../widget/custom_minibutton.dart';
@@ -21,18 +20,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFAF7),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFF121215),
         title: const Text(
           "Profile",
           style: TextStyle(
-            color: Color(0xffE0712D),
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+            color: Colors.white,
+            fontSize: 28,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -50,13 +49,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     vertical: screenWidth * 0.02,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color:  Color(0xFF121215),
                     borderRadius: BorderRadius.circular(screenWidth * 0.03),
                     border: const Border(
-                      left: BorderSide(color: Color(0xffE0712D), width: 5),
-                      top: BorderSide(color: Color(0xffE0712D), width: 1),
-                      right: BorderSide(color: Color(0xffE0712D), width: 1),
-                      bottom: BorderSide(color: Color(0xffE0712D), width: 1),
+                      left: BorderSide(color: AppColors.primary, width: 7),
+                      top: BorderSide(color: AppColors.primary, width: 1.5),
+                      right: BorderSide(color: AppColors.primary, width: 1.5),
+                      bottom: BorderSide(color: AppColors.primary, width: 1.5),
                     ),
                   ),
                   child: Row(
@@ -67,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     return Icon(
                                       Icons.person,
                                       size: 50,
-                                      color: Colors.grey[600],
+                                      color: Colors.white,
                                     );
                               }
                         ),
@@ -80,7 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           style: TextStyle(
                             fontSize: MediaQuery.of(context).size.width * 0.045,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -88,7 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Icon(
                         Icons.arrow_forward_ios,
                         size: MediaQuery.of(context).size.width * 0.045,
-                        color: Color(0xffE0712D),
+                        color: Colors.white,
                       ),
                     ],
                   ),
@@ -102,7 +101,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        backgroundColor: const Color(0xFFFFFAF7),
+                        backgroundColor: Color(0xFF121215),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18),
                         ),
@@ -136,17 +135,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               CustomMinibutton(
                                 text: 'Yes',
                                 textcolor: Colors.white,
-                                onTap: (){},
-                                backgroundColor: const Color(0xFFE0712D),
+                                onTap: (){
+                                  Navigator.of(context).pop();
+                                },
+                                backgroundColor: AppColors.primary,
                               ),
                               const SizedBox(width: 7),
                               CustomMinibutton(
                                 text: 'No',
-                                textcolor: const Color(0xffE0712D),
+                                textcolor: AppColors.primary,
                                 onTap: () {
                                   Navigator.of(context).pop();
                                 },
-                                backgroundColor: const Color(0xffFFFAF7),
+                                backgroundColor: Colors.white,
                               ),
                             ],
                           ),
@@ -154,13 +155,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       );
                     },
                   );
-                },
-              ),
-
-              SizedBox(height: 10),
-              CustomNew(
-                text: "Your Prescriptions",
-                onTap: () {
                 },
               ),
               SizedBox(height: 10),
@@ -182,7 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     context: context,
                     builder: (context) {
                       return Dialog(
-                        backgroundColor: Color(0xffFFFAF7),
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -235,7 +229,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   const SizedBox(width: 12),
                                   TextButton(
-                                    onPressed: ()  {},
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
                                     child: const Text(
                                       "Delete",
                                       style: TextStyle(
@@ -264,7 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     context: context,
                     builder: (context) {
                       return Dialog(
-                        backgroundColor: Color(0xffFFFAF7),
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

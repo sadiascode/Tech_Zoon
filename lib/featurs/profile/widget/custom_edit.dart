@@ -14,7 +14,7 @@ class CustomEdit extends StatefulWidget {
     required this.title,
     this.hintText,
     this.controller,
-    this.fillColor = const Color(0xFFFFF0E6),
+    this.fillColor = Colors.white,
     this.dropdownItems,
     this.selectedValue,
     this.onDropdownChanged,
@@ -55,7 +55,7 @@ class _CustomEditState extends State<CustomEdit> {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.white,
             ),
           ),
         ),

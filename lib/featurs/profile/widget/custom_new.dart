@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/common/custom_color.dart';
 
 class CustomNew extends StatelessWidget {
   final VoidCallback? onTap;
@@ -21,13 +22,13 @@ class CustomNew extends StatelessWidget {
         height: screenHeight * 0.06,
         width: screenWidth * 0.95,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color:Color(0xFF121215),
           borderRadius: BorderRadius.circular(screenWidth * 0.03),
           border: const Border(
-            left: BorderSide(color: Color(0xffE0712D), width: 5),
-            top: BorderSide(color: Color(0xffE0712D), width: 1),
-            right: BorderSide(color: Color(0xffE0712D), width: 1),
-            bottom: BorderSide(color: Color(0xffE0712D), width: 1),
+            left: BorderSide(color: AppColors.primary, width: 5),
+            top: BorderSide(color: AppColors.primary, width: 1),
+            right: BorderSide(color: AppColors.primary, width: 1),
+            bottom: BorderSide(color: AppColors.primary, width: 1),
           ),
         ),
         child: Align(
@@ -39,7 +40,7 @@ class CustomNew extends StatelessWidget {
               style: TextStyle(
                 fontSize: screenWidth * 0.045,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           ),

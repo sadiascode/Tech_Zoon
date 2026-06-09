@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/custom_color.dart';
+
 class CustomMinibutton extends StatelessWidget {
   final String text;
   final Color textcolor;
@@ -29,7 +31,7 @@ class CustomMinibutton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
             side: const BorderSide(
-              color: Color(0xffE0712D),
+              color: AppColors.primary,
               width: 2,
             ),
           ),

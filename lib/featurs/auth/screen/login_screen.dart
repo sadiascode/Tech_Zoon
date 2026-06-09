@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/common/custom_color.dart';
 import 'package:my_app/featurs/auth/screen/signup_screen.dart';
 import 'package:my_app/featurs/home/screen/home_screen.dart';
 import 'package:my_app/common/app_shell.dart';
@@ -66,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                       checkColor: Colors.white,
-                      activeColor: const Color(0xff3CB189),
+                      activeColor: AppColors.primary,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     const SizedBox(width: 4),
@@ -85,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: const Text(
                     "Forgot Password?",
-                    style: TextStyle(fontSize: 14, color: Color(0xff3CB189)),
+                    style: TextStyle(fontSize: 14, color: AppColors.primary),
                   ),
                 ),
               ],
@@ -121,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: const Text(
                     "Sign Up",
                     style: TextStyle(
-                      color: Color(0xff3CB189),
+                      color: AppColors.primary,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                     ),

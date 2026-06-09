@@ -57,8 +57,8 @@ class CustomBottomNav extends StatelessWidget {
     final isActive = currentIndex == index;
 
     Widget iconWidget = SizedBox(
-      width: isCenter ? 36 : 32,
-      height: isCenter ? 36 : 32,
+      width: isCenter ? 30 : 30,
+      height: isCenter ? 30 : 30,
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: tabs[index].icon,
@@ -103,7 +103,7 @@ class CustomBottomNav extends StatelessWidget {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
-                          borderRadius: BorderRadius.circular(isCenter ? 24 : 14),
+                          borderRadius: BorderRadius.circular(isCenter ? 18 : 14),
                           boxShadow: [
                             BoxShadow(
                               color: const Color(0xFF1E6BD1).withValues(alpha: 0.3),

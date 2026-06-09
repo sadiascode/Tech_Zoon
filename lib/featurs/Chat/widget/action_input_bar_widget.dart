@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../common/custom_color.dart';
+
 class ActionInputBarWidget extends StatefulWidget {
   final Function(File)? onImageCaptured;
   final Function(Map<String, dynamic>)? onVoiceRecorded;
@@ -161,7 +163,7 @@ class _ActionInputBarWidgetState extends State<ActionInputBarWidget>
                 child: const Icon(
                   Icons.camera_alt,
                   size: 32,
-                  color: Color(0xff86CC55),
+                  color: AppColors.primary,
                 ),
               ),
             ),
@@ -172,12 +174,12 @@ class _ActionInputBarWidgetState extends State<ActionInputBarWidget>
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration: const BoxDecoration(
-                color: Color(0xff86CC55),
+                color: AppColors.primary,
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.mic,
-                color: Colors.white,
+                color: AppColors.black,
                 size: 28,
               ),
             ),
@@ -196,7 +198,7 @@ class _ActionInputBarWidgetState extends State<ActionInputBarWidget>
                 child: const Icon(
                   Icons.photo_library,
                   size: 32,
-                  color: Color(0xff86CC55),
+                  color: AppColors.primary,
                 ),
               ),
             ),

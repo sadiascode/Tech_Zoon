@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import '../../../common/custom_color.dart';
 import 'action_input_bar_widget.dart';
 
 class CustomText extends StatefulWidget {
@@ -63,7 +64,7 @@ class _CustomTextState extends State<CustomText> {
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     child: Row(
                       children: [
-                        const Icon(Icons.mic, color: Color(0xff86CC55)),
+                         Icon(Icons.mic, color: AppColors.primary),
                         const SizedBox(width: 8),
                         Text(
                           "Voice Recording (${_stagedRecording!['duration']}s)",
@@ -94,7 +95,7 @@ class _CustomTextState extends State<CustomText> {
                 ),
                 IconButton(
                   onPressed: _handleSend,
-                  icon: const Icon(Icons.send, color: Color(0xff86CC55), size: 24),
+                  icon:  Icon(Icons.send, color: AppColors.primary, size: 24),
                 ),
               ],
             ),

@@ -63,9 +63,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
 
             const SizedBox(height: 20),
-            loading
-                ? const Center(child: CircularProgressIndicator())
-                : CustomButton(
+            CustomButton(
               text: "Sign Up",
               onTap: (){
                 Navigator.push(

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/featurs/about/about_screen.dart';
 import 'package:my_app/featurs/products/products_screen.dart';
-import '../../featurs/Chat/chat_screen.dart';
+import '../../featurs/Chat/screen/chat_screen.dart';
 import '../../featurs/home/screen/home_screen.dart';
 import '../../featurs/profile/profile_screen.dart';
 import 'bottom_tab_item.dart';

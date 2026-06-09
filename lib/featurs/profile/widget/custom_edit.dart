@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/common/custom_color.dart';
 
 class CustomEdit extends StatefulWidget {
   final String title;
@@ -14,7 +15,7 @@ class CustomEdit extends StatefulWidget {
     required this.title,
     this.hintText,
     this.controller,
-    this.fillColor = Colors.white,
+    this.fillColor = Colors.transparent,
     this.dropdownItems,
     this.selectedValue,
     this.onDropdownChanged,
@@ -26,22 +27,6 @@ class CustomEdit extends StatefulWidget {
 
 class _CustomEditState extends State<CustomEdit> {
   String? _internalSelectedValue;
-
-  @override
-  void initState() {
-    super.initState();
-    _internalSelectedValue = widget.selectedValue;
-  }
-
-  @override
-  void didUpdateWidget(CustomEdit oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.selectedValue != widget.selectedValue) {
-      setState(() {
-        _internalSelectedValue = widget.selectedValue;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,61 +44,28 @@ class _CustomEditState extends State<CustomEdit> {
             ),
           ),
         ),
-        const SizedBox(height: 5),
-        widget.dropdownItems != null
-            ? Container(
-          padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 4),
-          decoration: BoxDecoration(
-            color: widget.fillColor,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade300),
-          ),
-          child: DropdownButton<String>(
-            value: _internalSelectedValue,
-            hint: Text(
-              widget.hintText ?? '',
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
-            ),
-            isExpanded: true,
-            underline: const SizedBox(),
-            items: widget.dropdownItems!.map((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              );
-            }).toList(),
-            onChanged: (String? newValue) {
-              setState(() {
-                _internalSelectedValue = newValue;
-              });
-              if (widget.onDropdownChanged != null) {
-                widget.onDropdownChanged!(newValue);
-              }
-            },
-          ),
-        )
-            : TextField(
+        SizedBox(height: 6),
+
+        TextField(
           controller: widget.controller,
+          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintStyle: const TextStyle(
-              color: Colors.black,
+              color: Colors.white54,
               fontSize: 16,
             ),
             filled: true,
             fillColor: widget.fillColor,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide.none),
+                borderSide: const BorderSide(color: AppColors.primary)),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: const BorderSide(color: AppColors.primary)),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: const BorderSide(color: AppColors.primary, width: 2)),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 17,
               vertical: 14,

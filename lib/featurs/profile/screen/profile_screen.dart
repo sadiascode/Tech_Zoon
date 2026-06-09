@@ -114,12 +114,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 title: "Current Password",
                                 hintText: "**************",
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 20),
                               CustomEdit(
                                 title: "New Password",
                                 hintText: "**************",
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 20),
                               CustomEdit(
                                 title: "Retype New Password",
                                 hintText: "**************",
@@ -176,7 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     context: context,
                     builder: (context) {
                       return Dialog(
-                        backgroundColor: Colors.white,
+                        backgroundColor: const Color(0xFF121215),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -192,21 +192,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               const Text(
                                 "Confirm Delete Account",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              const SizedBox(height: 16),
+                              ), const SizedBox(height: 3),
+
                               const Text(
                                 "Are you sure you want to delete your account?",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white70,
                                   fontSize: 15,
                                   height: 1.4,
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 20),
                               CustomEdit(
                                 title: "Current Password",
                                 hintText: "**************",
@@ -260,7 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     context: context,
                     builder: (context) {
                       return Dialog(
-                        backgroundColor: Colors.white,
+                        backgroundColor: const Color(0xFF121215),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -276,7 +276,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               const Text(
                                 "Confirm Sign Out",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -285,7 +285,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               const Text(
                                 "Are you sure you want to sign out?",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white70,
                                   fontSize: 15,
                                   height: 1.4,
                                 ),

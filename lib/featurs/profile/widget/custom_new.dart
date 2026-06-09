@@ -38,7 +38,7 @@ class CustomNew extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(
-                fontSize: screenWidth * 0.045,
+                fontSize: screenWidth * 0.032,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),

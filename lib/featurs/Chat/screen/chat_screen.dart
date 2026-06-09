@@ -93,7 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
           "Chat",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 28,
+            fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
         ),

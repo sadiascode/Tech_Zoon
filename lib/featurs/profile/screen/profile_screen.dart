@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/common/custom_color.dart';
+import 'package:my_app/featurs/auth/screen/login_screen.dart';
+import 'package:my_app/featurs/profile/screen/myprofile_screen.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_edit.dart';
 import '../widget/custom_minibutton.dart';
@@ -30,7 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           "Profile",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 28,
+            fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -42,7 +44,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               SizedBox(height: 15),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const MyprofileScreen()),
+                  );
+                },
                 child: Container(
                   padding: EdgeInsets.symmetric(
                     horizontal: screenWidth * 0.05,
@@ -65,7 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           builder: (context) {
                                     return Icon(
                                       Icons.person,
-                                      size: 50,
+                                      size: 40,
                                       color: Colors.white,
                                     );
                               }
@@ -77,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Text(
                           "My Profile",
                           style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.045,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
@@ -308,7 +316,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   const SizedBox(width: 12),
                                   TextButton(
-                                    onPressed: () async {
+                                    onPressed: ()  {
+                                      Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => const LoginScreen()),
+                                    );
                                     },
                                     child: const Text(
                                       "Sign Out",

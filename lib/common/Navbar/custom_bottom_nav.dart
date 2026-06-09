@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../custom_color.dart';
 import 'bottom_tab_item.dart';
 
 class CustomBottomNav extends StatelessWidget {
@@ -98,7 +99,7 @@ class CustomBottomNav extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
-                            colors: [Color(0xFF86CC55), Color(0xFF1E6BD1)],
+                            colors: AppColors.secondaryGradient,
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),

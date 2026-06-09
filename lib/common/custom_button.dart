@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: AppColors.primaryGradient,
+            colors: AppColors.secondaryGradient,
           ),
           borderRadius: BorderRadius.circular(12),
         ),

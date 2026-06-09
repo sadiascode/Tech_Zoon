@@ -11,7 +11,7 @@ import 'Navbar/custom_bottom_nav.dart';
 class AppShell extends StatefulWidget {
   final int initialIndex;
 
-  const AppShell({super.key, this.initialIndex = 2});
+  const AppShell({super.key, this.initialIndex = 0});
 
   @override
   State<AppShell> createState() => _AppShellState();
@@ -30,25 +30,25 @@ class _AppShellState extends State<AppShell> {
 
     _bottomTabs = [
       BottomTabItem(
-        label: "Products",
-        icon: Icon(Icons.local_dining),
-        page: ProductsScreen(),
-      ),
-      BottomTabItem(
-        label: "About Us",
-        icon: Icon(Icons.fitness_center),
-        page: AboutScreen(),
-      ),
-      BottomTabItem(
         label: "Home",
         icon: Icon(Icons.home),
         page: const HomeScreen(),
-        isCenter: true,
+      ),
+      BottomTabItem(
+        label: "Products",
+        icon: Icon(Icons.shopping_bag),
+        page: ProductsScreen(),
       ),
       BottomTabItem(
         label: "Chat",
         icon: Icon(Icons.chat),
         page: ChatScreen(),
+        isCenter: true,
+      ),
+      BottomTabItem(
+        label: "About Us",
+        icon: Icon(Icons.info),
+        page: AboutScreen(),
       ),
       BottomTabItem(
         label: "Profile",
@@ -102,25 +102,25 @@ class SubPageScaffold extends StatelessWidget {
 
   static List<BottomTabItem> get _bottomTabs => [
     BottomTabItem(
-      label: "Nutrition",
-      icon: Icon(Icons.local_dining),
-      page: const SizedBox(),
-    ),
-    BottomTabItem(
-      label: "Feature",
-      icon: Icon(Icons.fitness_center),
-      page: const SizedBox(),
-    ),
-    BottomTabItem(
       label: "Home",
       icon: Icon(Icons.home),
-      page: const SizedBox(),
-      isCenter: true,
+      page: HomeScreen(),
+    ),
+    BottomTabItem(
+      label: "Products",
+      icon: Icon(Icons.shopping_bag),
+      page: ProductsScreen(),
     ),
     BottomTabItem(
       label: "Chat",
+      icon: Icon(Icons.info),
+      page: ChatScreen(),
+      isCenter: true,
+    ),
+    BottomTabItem(
+      label: "About Us",
       icon: Icon(Icons.chat),
-      page: const SizedBox(),
+      page: AboutScreen(),
     ),
     BottomTabItem(
       label: "Profile",

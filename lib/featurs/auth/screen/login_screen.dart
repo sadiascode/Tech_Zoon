@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/featurs/auth/screen/signup_screen.dart';
 import 'package:my_app/featurs/home/screen/home_screen.dart';
+import 'package:my_app/common/app_shell.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_screen.dart';
 import '../widget/custom_textfield.dart';
@@ -96,9 +97,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 : CustomButton(
               text: "Sign in",
               onTap: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const HomeScreen()),
+                MaterialPageRoute(builder: (_) => const AppShell(initialIndex: 0)),
               );},
             ),
 

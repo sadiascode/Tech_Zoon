@@ -33,7 +33,7 @@ class CustomBottomNav extends StatelessWidget {
                 color: Colors.black.withValues(alpha: 0.3),
                 blurRadius: 20,
                 spreadRadius: 2,
-                offset: const Offset(0, 10), // Soft shadow
+                offset: const Offset(0, 10),
               ),
               BoxShadow(
                 color: Colors.white.withValues(alpha: 0.05),
@@ -73,7 +73,6 @@ class CustomBottomNav extends StatelessWidget {
       child: iconWidget,
     );
 
-    // Very subtle translation so it doesn't bleed out of the background pill box.
     final double translateY = isActive ? (isCenter ? -8.0 : -2.0) : 0.0;
 
     return Expanded(
@@ -86,7 +85,7 @@ class CustomBottomNav extends StatelessWidget {
           children: [
             AnimatedContainer(
               duration: const Duration(milliseconds: 300),
-              curve: Curves.easeOutCubic, // Changed from Back to prevent size overshoot overflow
+              curve: Curves.easeOutCubic,
               transform: Matrix4.translationValues(0, translateY, 0),
               child: Stack(
                 alignment: Alignment.center,
@@ -115,6 +114,7 @@ class CustomBottomNav extends StatelessWidget {
                       ),
                     ),
                   ),
+
                   AnimatedPadding(
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeOutCubic,

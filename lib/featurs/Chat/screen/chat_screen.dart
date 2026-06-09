@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import '../../../common/custom_color.dart';
 import '../widget/custom_text.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -120,12 +121,12 @@ class _ChatScreenState extends State<ChatScreen> {
                         vertical: 10, horizontal: 14),
                     decoration: BoxDecoration(
                       color: isUser
-                          ? const Color(0xff86CC55)
+                          ? AppColors.primary
                           : const Color(0xFF1E1E24),
                       borderRadius: BorderRadius.circular(12),
                       border: isUser
                           ? null
-                          : Border.all(color: const Color(0xff86CC55).withValues(alpha: 0.2)),
+                          : Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                     ),
                     child: type == "image"
                         ? Image.file(

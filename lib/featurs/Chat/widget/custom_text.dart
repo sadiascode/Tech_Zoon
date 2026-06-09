@@ -44,7 +44,7 @@ class _CustomTextState extends State<CustomText> {
       decoration: BoxDecoration(
         color: const Color(0xFF1E1E24),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xff86CC55).withValues(alpha: 0.2)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
       ),
       margin: const EdgeInsets.symmetric(horizontal: 11),
       child: Column(

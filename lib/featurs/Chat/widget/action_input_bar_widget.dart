@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../common/custom_color.dart';
 
 class ActionInputBarWidget extends StatefulWidget {

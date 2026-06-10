@@ -3,6 +3,7 @@ import 'package:my_app/common/custom_color.dart';
 import 'package:my_app/featurs/auth/screen/login_screen.dart';
 import 'package:my_app/featurs/profile/screen/myprofile_screen.dart';
 import 'package:my_app/featurs/profile/screen/privacy_policy.dart';
+import 'package:my_app/featurs/profile/screen/terms_conditions.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_edit.dart';
 import '../widget/custom_minibutton.dart';
@@ -187,7 +188,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               SizedBox(height: 10),
 
-              CustomNew(text: "Terms and Conditions"),
+              CustomNew(
+                text: "Terms and Conditions",
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const TermsConditions(),
+                    ),
+                  );
+                },),
               SizedBox(height: 10),
 
               CustomNew(text: "Delete Account",onTap: (){

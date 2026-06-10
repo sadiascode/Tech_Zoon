@@ -162,7 +162,6 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 25),
 
-                  // 5. Contact Information
                   const Text(
                     "Store Information",
                     style: TextStyle(

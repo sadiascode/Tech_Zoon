@@ -43,12 +43,12 @@ class TermsConditions extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              "Effective Date: March 31, 2026",
+              "Effective Date: June 10, 2026",
               style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.white.withValues(alpha: 0.7)),
             ),
             SizedBox(height: 20),
             Text(
-              "Welcome to Top Talent Agency Gym App! These Terms and Conditions govern your use of our fitness application and services.",
+              "Welcome to our electronics store! These Terms and Conditions govern your use of our app and the purchase of laptops, mobiles, and accessories from our platform.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.9)),
             ),
             SizedBox(height: 20),
@@ -58,121 +58,87 @@ class TermsConditions extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              "By downloading, installing, or using our app, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our app.",
+              "By downloading, installing, or using our app to purchase products, you agree to these Terms and Conditions. If you do not agree, please do not use our app.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "2. Membership and Account",
+              "2. User Accounts",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "- You must create an account to access gym features and track workouts.\n"
+              "- You must create an account to place orders, track shipments, and request returns.\n"
                   "- You are responsible for maintaining the confidentiality of your login credentials.\n"
-                  "- You must provide accurate personal information for membership verification.\n"
-                  "- You must be at least 16 years old to create an account.\n"
-                  "- Membership fees and payment terms are as specified in your subscription plan.",
+                  "- You must provide accurate shipping and billing information.\n"
+                  "- We reserve the right to suspend accounts suspected of fraudulent activity.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "3. Gym Equipment Usage",
+              "3. Product Information & Pricing",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "- Use gym equipment responsibly and follow safety guidelines.\n"
-                  "- Clean equipment after use using provided sanitation supplies.\n"
-                  "- Do not use equipment beyond your physical capabilities.\n"
-                  "- Report any damaged or malfunctioning equipment immediately.\n"
-                  "- Wear appropriate workout attire and footwear at all times.",
+              "- We strive to ensure all laptop and mobile specifications, images, and prices are accurate.\n"
+                  "- Prices are subject to change without notice due to market fluctuations.\n"
+                  "- In the event of a pricing error, we reserve the right to cancel the order and issue a full refund.\n"
+                  "- All products are subject to availability while stocks last.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "4. Workout Programs and Training",
+              "4. Orders and Payments",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "- Workout programs provided are for general fitness guidance.\n"
-                  "- Consult with certified trainers for personalized workout plans.\n"
-                  "- Progress at your own pace and avoid overexertion.\n"
-                  "- Stay hydrated and take breaks as needed during workouts.\n"
-                  "- Follow proper form and technique to prevent injuries.",
+              "- By placing an order, you are making an offer to purchase the selected items.\n"
+                  "- Orders are confirmed only upon successful payment authorization.\n"
+                  "- We accept credit/debit cards, mobile banking, and select cash-on-delivery options.\n"
+                  "- You are responsible for any applicable taxes or delivery fees shown at checkout.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "5. Health and Safety Disclaimer",
+              "5. Shipping and Delivery",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "IMPORTANT: Your health and safety are your responsibility:\n"
-                  "- Consult with a healthcare professional before starting any fitness program.\n"
-                  "- Inform us of any medical conditions or physical limitations.\n"
-                  "- Stop exercising immediately if you feel dizzy, nauseous, or experience pain.\n"
-                  "- We are not liable for injuries, accidents, or health issues resulting from app usage.\n"
-                  "- Emergency contact information must be kept up to date in your profile.",
+              "- Delivery times vary based on your location and the courier service.\n"
+                  "- We provide tracking information once the order is dispatched.\n"
+                  "- Please inspect the package upon delivery before signing for receipt.\n"
+                  "- We are not liable for delays caused by external logistics partners, but we will assist in resolving delivery issues.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "6. Gym Facility Rules",
+              "6. Returns, Refunds, and Warranty",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "- Respect other members and maintain a positive gym environment.\n"
-                  "- No unauthorized personal training or coaching.\n"
-                  "- Follow gym hours and schedule guidelines.\n"
-                  "- Do not drop weights or create excessive noise.\n"
-                  "- Adhere to dress code and personal hygiene standards.\n"
-                  "- No food or drinks (except water) in workout areas.",
+              "- We accept returns for damaged, defective, or incorrect items within 7 days of delivery.\n"
+                  "- To be eligible for a return, devices must be unused, in their original packaging, with all seals intact.\n"
+                  "- Official manufacturer warranties apply to laptops and mobiles as stated on the product page.\n"
+                  "- Refunds for eligible returns will be processed to the original payment method within 7-10 business days.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "7. Subscription and Payments",
+              "7. Limitation of Liability",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "- Membership fees are charged monthly/annually as per your selected plan.\n"
-                  "- All payments are processed securely through our payment partners.\n"
-                  "- No refunds for partial months or unused days in the current billing cycle.\n"
-                  "- Prices are subject to change with 30 days prior notice.\n"
-                  "- Failed payments may result in temporary suspension of access.",
+              "To the fullest extent permitted by law, our store shall not be liable for any indirect, incidental, or consequential damages arising from the use of our app, delays in delivery, or the use/inability to use any purchased device.",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 20),
             Text(
-              "8. Cancellation and Termination",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
-            ),
-            SizedBox(height: 5),
-            Text(
-              "- You can cancel your membership at any time through your account settings.\n"
-                  "- Cancellation takes effect at the end of the current billing period.\n"
-                  "- We reserve the right to terminate accounts for violations of these terms.\n"
-                  "- Terminated accounts lose access to all features and stored data after 30 days.",
-              style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
-            ),
-            SizedBox(height: 20),
-            Text(
-              "9. Limitation of Liability",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:AppColors.primary),
-            ),
-            SizedBox(height: 5),
-            Text(
-              "To the fullest extent permitted by law, Top Talent Agency shall not be liable for any indirect, incidental, special, or consequential damages resulting from your use of the app or gym services, including but not limited to personal injury or health issues.",
-              style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
-            ),
-            SizedBox(height: 20),
-            Text(
-              "10. Changes to Terms",
+              "8. Changes to Terms",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
@@ -182,17 +148,16 @@ class TermsConditions extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              "11. Contact Information",
+              "9. Contact Information",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
-              "For questions about these Terms and Conditions or any gym-related matters:\n\n"
-                  "Email: support@toptalentagency.com\n"
-                  "Phone: +880 1234-567890\n"
-                  "Address: Top Talent Agency, Dhaka, Bangladesh\n\n"
-                  "Gym Hours: 6:00 AM - 10:00 PM (Daily)\n"
-                  "Emergency Contact: +880 1234-567891",
+              "For questions about these Terms, orders, or warranties:\n\n"
+                  "Email: sadia@gmail.com\n"
+                  "Phone: +880 1734-567890\n"
+                  "Address: Tech Zone , Dhaka, Bangladesh\n\n"
+                  "Support Hours: 10:00 AM - 8:00 PM (Daily)",
               style: TextStyle(fontSize: 16, color: Colors.white.withValues(alpha: 0.8)),
             ),
             SizedBox(height: 40),

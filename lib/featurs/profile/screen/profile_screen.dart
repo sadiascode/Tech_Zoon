@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/common/custom_color.dart';
 import 'package:my_app/featurs/auth/screen/login_screen.dart';
 import 'package:my_app/featurs/profile/screen/myprofile_screen.dart';
+import 'package:my_app/featurs/profile/screen/privacy_policy.dart';
 import '../../../common/custom_button.dart';
 import '../widget/custom_edit.dart';
 import '../widget/custom_minibutton.dart';
@@ -173,7 +174,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               SizedBox(height: 10),
 
-              CustomNew(text: "Privacy Policy"),
+              CustomNew(
+                text: "Privacy Policy",
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const PrivacyPolicy(),
+                    ),
+                  );
+                }
+              ),
               SizedBox(height: 10),
 
               CustomNew(text: "Terms and Conditions"),

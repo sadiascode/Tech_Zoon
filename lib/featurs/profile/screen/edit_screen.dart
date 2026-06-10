@@ -15,6 +15,8 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
+  final ImagePicker _picker = ImagePicker();
+
 
 
   @override
@@ -76,7 +78,13 @@ class _EditScreenState extends State<EditScreen> {
               ),
               const SizedBox(height: 7),
               GestureDetector(
-                onTap: (){},
+                onTap: () async {
+                  final ImagePicker picker = ImagePicker();
+                  // Pick an image.
+                  final XFile? image = await picker.pickImage(
+                    source: ImageSource.gallery,
+                  );
+                },
                 child: const Text(
                   'Change photo',
                   style: TextStyle(

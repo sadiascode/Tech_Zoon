@@ -6,21 +6,12 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF121215),
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: const Color(0xFF121215),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-            size: 18,
-          ),
-        ),
         title: const Text(
           "About Us",
           style: TextStyle(
@@ -35,6 +26,7 @@ class AboutScreen extends StatelessWidget {
           "Welcome to About Us Page",
           style: TextStyle(
             fontSize: 24,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),

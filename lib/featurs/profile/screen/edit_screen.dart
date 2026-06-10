@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:my_app/featurs/profile/screen/profile_screen.dart';
 import '../../../common/app_shell.dart';
 import '../../../common/custom_button.dart';
 import '../../../common/custom_color.dart';
@@ -90,7 +91,7 @@ class _EditScreenState extends State<EditScreen> {
               const SizedBox(height: 20),
               CustomEdit(
                 title: "Full Name",
-                hintText: "Enter your name",
+                hintText: "Enter your full name",
               ),
               const SizedBox(height: 15),
               CustomEdit(
@@ -99,28 +100,35 @@ class _EditScreenState extends State<EditScreen> {
               ),
               const SizedBox(height: 15),
               CustomEdit(
-                title: "Address",
-                hintText: "Enter your address here",
+                title: "Phone",
+                hintText: "Enter your phone number",
               ),
               const SizedBox(height: 15),
               CustomEdit(
-                title: "Age",
-                hintText: "Enter your Age",
+                title: "Membership Duration",
+                hintText: "How long have you been with us?",
               ),
               const SizedBox(height: 15),
               CustomEdit(
-                title: "Health condition",
-                hintText: "Enter your Health condition",
+                title: "Shipping Address ",
+                hintText: "Enter your Shipping Address",
               ),
               const SizedBox(height: 15),
               CustomEdit(
-                title: "Wakeup time",
-                hintText: "Enter your Wakeup time",
+                title: " Billing Address",
+                hintText: "Enter your billing address",
               ),
               const SizedBox(height: 30),
               CustomButton(
                 text: "Save",
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ProfileScreen(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 120),
             ],

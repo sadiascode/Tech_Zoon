@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/common/custom_color.dart';
 import 'package:my_app/featurs/auth/screen/login_screen.dart';
+import 'package:my_app/featurs/profile/screen/edit_screen.dart';
 import 'package:my_app/featurs/profile/screen/myprofile_screen.dart';
 import 'package:my_app/featurs/profile/screen/privacy_policy.dart';
 import 'package:my_app/featurs/profile/screen/terms_conditions.dart';
@@ -105,6 +106,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               SizedBox(height: 25),
               CustomNew(
+                text: "Edit Profile Info",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const EditScreen(),
+                    ),
+                  );
+                },
+              ),
+              SizedBox(height: 10),
+              CustomNew(
                 text: "Change Password",
                 onTap: () {
                   showDialog(
@@ -165,12 +178,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       );
                     },
                   );
-                },
-              ),
-              SizedBox(height: 10),
-              CustomNew(
-                text: "Edit Profile Info",
-                onTap: () {
                 },
               ),
               SizedBox(height: 10),

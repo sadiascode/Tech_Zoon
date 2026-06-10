@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../common/app_shell.dart';
+import '../../../common/custom_color.dart';
 
 class TermsConditions extends StatelessWidget {
   const TermsConditions({super.key});
@@ -24,7 +25,7 @@ class TermsConditions extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xff86CC55), size: 18),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 18),
         ),
       ),
       body: SingleChildScrollView(
@@ -53,7 +54,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "1. Acceptance of Terms",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -63,7 +64,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "2. Membership and Account",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -77,7 +78,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "3. Gym Equipment Usage",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -91,7 +92,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "4. Workout Programs and Training",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -105,7 +106,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "5. Health and Safety Disclaimer",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -120,7 +121,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "6. Gym Facility Rules",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -135,7 +136,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "7. Subscription and Payments",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -149,7 +150,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "8. Cancellation and Termination",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -162,7 +163,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "9. Limitation of Liability",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -172,7 +173,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "10. Changes to Terms",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -182,7 +183,7 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "11. Contact Information",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(

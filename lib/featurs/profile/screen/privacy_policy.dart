@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../common/app_shell.dart';
+import '../../../common/custom_color.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({super.key});
@@ -24,7 +25,7 @@ class PrivacyPolicy extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xff86CC55), size: 18),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 18),
         ),
       ),
       body: SingleChildScrollView(
@@ -53,7 +54,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "1. Information We Collect",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -68,7 +69,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "2. How We Use Your Information",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -84,7 +85,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "3. Data Sharing and Disclosure",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -100,7 +101,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "4. Workout Data and Analytics",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -114,7 +115,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "5. Data Security Measures",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -128,7 +129,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "6. Your Privacy Rights",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -143,7 +144,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "7. Age Requirements and Minors",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -156,7 +157,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "8. Changes to This Privacy Policy",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -169,7 +170,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "9. Contact Us",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(
@@ -184,7 +185,7 @@ class PrivacyPolicy extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               "10. Data Retention",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff86CC55)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:AppColors.primary),
             ),
             SizedBox(height: 5),
             Text(

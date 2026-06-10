@@ -82,9 +82,9 @@ class _EditScreenState extends State<EditScreen> {
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xff86CC55),
+                    color: AppColors.primary,
                     decoration: TextDecoration.underline,
-                    decorationColor: Color(0xff86CC55),
+                    decorationColor: AppColors.primary,
                   ),
                 ),
               ),

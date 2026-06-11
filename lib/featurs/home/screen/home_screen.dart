@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../widget/custom_card.dart';
 import '../widget/custom_search.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,11 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: const Color(0xFF121215),
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: const Text(
-          "Tech Zoon",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+        title: Center(
+          child: const Text(
+            "Tech Zoon",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         actions: const [
@@ -148,68 +150,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
             const SizedBox(height: 15),
 
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 6,
-              gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: .75,
-              ),
-              itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1D1D22),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          margin: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Center(
-                            child: Icon(
-                              Icons.image,
-                              color: Colors.white54,
-                              size: 50,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              "iPhone 15 Pro",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              "\$999",
-                              style: TextStyle(
-                                color: Color(0xFF205090),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+            Column(
+              children: [
+                CustomCard(
+                  name: "iPhone 15 Pro",
+                  price: "\$999",
+                ),
+              ],
             ),
+            CustomCard(
+              name: "Accessories",
+              price: "\$999",
+            ),
+            CustomCard(
+              name: "Laptop",
+              price: "\$999",
+            ),
+            CustomCard(
+              name: "Tablet",
+              price: "\$999",
+            ),CustomCard(
+              name: "iPhone 15 Pro",
+              price: "\$999",
+            ),CustomCard(
+              name: "Laptop",
+              price: "\$999",
+            ),CustomCard(
+              name: "iPhone 15 Pro",
+              price: "\$999",
+            ),
+
+
+
+
+
 
             const SizedBox(height: 20),
 

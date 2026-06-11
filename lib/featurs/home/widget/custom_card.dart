@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/featurs/products/screen/products_screen.dart';
 
 
-class CustomCard extends StatelessWidget {
+class CustomCard extends StatefulWidget {
   final String name;
   final String price;
   final String image;
@@ -14,6 +14,11 @@ class CustomCard extends StatelessWidget {
     required this.image,
   });
 
+  @override
+  State<CustomCard> createState() => _CustomCardState();
+}
+
+class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +46,7 @@ class CustomCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset(
-                  image,
+                  widget.image,
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),
@@ -57,7 +62,7 @@ class CustomCard extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    name,
+                    widget.name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -72,7 +77,7 @@ class CustomCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      price,
+                      widget.price,
                       style: const TextStyle(
                         color: Color(0xFF2D7DFF),
                         fontWeight: FontWeight.bold,
@@ -81,12 +86,13 @@ class CustomCard extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const ProductsScreen(),
-                          ),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (_) => const ProductsScreen(),
+                        //   ),
+                        // );
+                       // State
                       },
                       child: Container(
                         width: 28,

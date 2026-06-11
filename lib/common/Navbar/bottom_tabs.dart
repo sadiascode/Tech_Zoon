@@ -12,7 +12,6 @@ final List<BottomTabItem> bottomTabs = [
     label: "Home",
     icon: Icon(Icons.home),
     page: HomeScreen(),
-    isCenter: true,
   ),
   BottomTabItem(
     label: "Products",
@@ -28,6 +27,7 @@ final List<BottomTabItem> bottomTabs = [
     label: "Chat",
     icon: Icon(Icons.chat),
     page: ChatScreen(),
+    isCenter: true,
   ),
   BottomTabItem(
     label: "Profile",

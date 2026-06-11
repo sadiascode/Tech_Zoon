@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/featurs/products/screen/products_screen.dart';
 
+import '../../../common/app_shell.dart';
+
 
 class CustomCard extends StatefulWidget {
   final String name;
@@ -86,13 +88,12 @@ class _CustomCardState extends State<CustomCard> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (_) => const ProductsScreen(),
-                        //   ),
-                        // );
-                       // State
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => const AppShell(initialIndex: 1),
+                          ),
+                              (route) => false,
+                        );
                       },
                       child: Container(
                         width: 28,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../common/custom_color.dart';
 
 class SortFilterWidget extends StatelessWidget {
   final int totalCount;
@@ -39,7 +40,7 @@ class SortFilterWidget extends StatelessWidget {
               children: [
                 const Icon(
                   Icons.sort_rounded,
-                  color: Color(0xFF2D7DFF),
+                  color:AppColors.primary,
                   size: 16,
                 ),
                 const SizedBox(width: 6),

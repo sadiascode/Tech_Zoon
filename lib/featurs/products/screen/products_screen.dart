@@ -80,7 +80,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => const CardScreen()),
+                            builder: (_) => const CardScreen(),)
                       );
                   },
                   icon: const Icon(Icons.shopping_cart_outlined, 

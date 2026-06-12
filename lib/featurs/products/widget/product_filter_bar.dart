@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../common/custom_color.dart';
 
 class ProductFilterBar extends StatelessWidget {
   final List<String> filters;
@@ -30,19 +31,19 @@ class ProductFilterBar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 18),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? const Color(0xFF2D7DFF)
+                    ? AppColors.primary
                     : const Color(0xFF1D1D22),
                 borderRadius: BorderRadius.circular(25),
                 border: Border.all(
                   color: isSelected
-                      ? const Color(0xFF2D7DFF)
+                      ? AppColors.primary
                       : Colors.white.withValues(alpha: 0.08),
                   width: 1,
                 ),
                 boxShadow: isSelected
                     ? [
                         BoxShadow(
-                          color: const Color(0xFF2D7DFF)
+                          color: AppColors.primary
                               .withValues(alpha: 0.35),
                           blurRadius: 10,
                           offset: const Offset(0, 3),

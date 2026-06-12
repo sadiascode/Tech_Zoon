@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../common/custom_color.dart';
+import '../../home/widget/custom_search.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({super.key});
@@ -54,7 +55,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0D0D0F),
-
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -75,11 +75,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ],
       ),
 
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
           const SizedBox(height: 15),
 
-          //CustomSearch(),
+          SearchField(onChanged: (String p1) {  }, hintText: ' Search Products...',),
 
           const SizedBox(height: 15),
 
@@ -131,7 +134,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
           const SizedBox(height: 15),
 
-        ],
+
+          ]
+        )
       ),
     );
   }

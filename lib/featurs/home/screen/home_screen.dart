@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Map<String, dynamic>> allProducts = [
     {"name": "iPhone 15 Pro", "price": "\$999", "image": "assets/iphones.webp", "category": "Mobile"},
-    {"name": "iPhone 15 Pro", "price": "\$999", "image": "assets/iphone.webp", "category": "Mobile"},
+    {"name": "iPhone 15 Pro", "price": "\$999", "image": "assets/iphone.jpg", "category": "Mobile"},
     {"name": "Samsung S24", "price": "\$849", "image": "assets/samsung.webp","category": "Mobile"},
     {"name": "OnePlus 12", "price": "\$699", "image": "assets/oneplus.png", "category": "Mobile"},
     {"name": "MacBook Pro", "price": "\$1999", "image": "assets/mac.jpg", "category": "Laptop"},
@@ -88,7 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
 
             SearchField(
               onChanged: (String val) {},

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatefulWidget {
   final String name;
   final String price;
-  final IconData icon;
+  final String image;
   final String tag;
   final double rating;
   final bool isInCart;
@@ -13,7 +13,7 @@ class ProductCard extends StatefulWidget {
     super.key,
     required this.name,
     required this.price,
-    required this.icon,
+    required this.image,
     this.tag = '',
     this.rating = 4.5,
     required this.isInCart,
@@ -68,7 +68,6 @@ class _ProductCardState extends State<ProductCard>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image Area
           Stack(
             children: [
               Container(
@@ -79,10 +78,11 @@ class _ProductCardState extends State<ProductCard>
                   borderRadius: BorderRadius.circular(13),
                 ),
                 child: Center(
-                  child: Icon(
-                    widget.icon,
-                    size: 55,
-                    color: const Color(0xFF2D7DFF).withValues(alpha: 0.75),
+                  child: Image.asset(
+                    widget.image,
+                    height: 55,
+                    width: 55,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
@@ -194,7 +194,7 @@ class _ProductCardState extends State<ProductCard>
                           padding: const EdgeInsets.all(7),
                           decoration: BoxDecoration(
                             color: widget.isInCart
-                                ? Colors.green.shade700
+                                ? Colors.green
                                 : const Color(0xFF2D7DFF),
                             borderRadius: BorderRadius.circular(9),
                           ),

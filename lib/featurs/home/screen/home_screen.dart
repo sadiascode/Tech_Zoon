@@ -22,20 +22,20 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   final List<Map<String, dynamic>> allProducts = [
-    {"name": "iPhone 15 Pro", "price": "\$999", "image": "assets/iphones.webp", "category": "Mobile"},
-    {"name": "iPhone 15 Pro", "price": "\$999", "image": "assets/iphone.jpg", "category": "Mobile"},
-    {"name": "Samsung S24", "price": "\$849", "image": "assets/samsung.webp","category": "Mobile"},
+    {"name": "iPhone 15 Pro Max", "price": "\$999", "image": "assets/iphones.webp", "category": "Mobile"},
+    {"name": "iPhone 13 Pro Max", "price": "\$999", "image": "assets/iphone.jpg", "category": "Mobile"},
+    {"name": "Samsung S24 Ultra", "price": "\$849", "image": "assets/samsung.webp","category": "Mobile"},
     {"name": "OnePlus 12", "price": "\$699", "image": "assets/oneplus.png", "category": "Mobile"},
-    {"name": "MacBook Pro", "price": "\$1999", "image": "assets/mac.jpg", "category": "Laptop"},
-    {"name": "ASUS ROG", "price": "\$1299","image": "assets/asus.jpg", "category": "Laptop"},
+    {"name": "MacBook Pro M3", "price": "\$1999", "image": "assets/mac.jpg", "category": "Laptop"},
+    {"name": "ASUS ROG Strix", "price": "\$1299","image": "assets/asus.jpg", "category": "Laptop"},
     {"name": "Dell XPS 15", "price": "\$1499","image": "assets/dells.jpg","category": "Laptop"},
-    {"name": "ASUS ROG", "price": "\$1299","image": "assets/asuss.jpg", "category": "Laptop"},
-    {"name": "iPad Pro", "price": "\$1099", "image": "assets/ipads.webp", "category": "Tablet"},
-    {"name": "Samsung", "price": "\$869","image": "assets/tab.webp","category": "Tablet"},
+    {"name": "ASUS ROG", "price": "\$1399","image": "assets/asuss.jpg", "category": "Laptop"},
+    {"name": "iPad Pro 12.9", "price": "\$1099", "image": "assets/ipads.webp", "category": "Tablet"},
+    {"name": "Galaxy Tab S9", "price": "\$869","image": "assets/tab.webp","category": "Tablet"},
     {"name": "Galaxy Tab S9", "price": "\$799","image": "assets/tab.png","category": "Tablet"},
     {"name": "AirPods Pro", "price": "\$249","image": "assets/airpods.png", "category": "Accessories"},
     {"name": "MagSafe Charger", "price": "\$39", "image": "assets/charger.webp", "category": "Accessories"},
-    {"name": "Smart Watch", "price": "\$199", "image": "assets/watch.png", "category": "Accessories"},
+    {"name": "Apple Watch Ultra", "price": "\$199", "image": "assets/watch.png", "category": "Accessories"},
   ];
 
   List<Map<String, dynamic>> get filteredProducts {

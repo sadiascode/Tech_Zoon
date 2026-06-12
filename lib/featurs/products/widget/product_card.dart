@@ -85,7 +85,6 @@ class _ProductCardState extends State<ProductCard>
                 ),
               ),
 
-              // Tag badge
               if (widget.tag.isNotEmpty)
                 Positioned(
                   left: 16,
@@ -110,7 +109,6 @@ class _ProductCardState extends State<ProductCard>
                   ),
                 ),
 
-              // Favourite button
               Positioned(
                 right: 16,
                 top: 16,
@@ -133,27 +131,28 @@ class _ProductCardState extends State<ProductCard>
             ],
           ),
 
-          // Info
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 11),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    height: 1.3,
+                Center(
+                  child: Text(
+                    widget.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      height: 1.3,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 5),
 
-                // Rating
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(Icons.star_rounded,
                         color: Color(0xFFFFC107), size: 14),
@@ -168,7 +167,7 @@ class _ProductCardState extends State<ProductCard>
                   ],
                 ),
 
-                const SizedBox(height: 6),
+                const SizedBox(height: 8),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -182,7 +181,6 @@ class _ProductCardState extends State<ProductCard>
                       ),
                     ),
 
-                    // Cart button with animation
                     ScaleTransition(
                       scale: _cartScaleAnim,
                       child: GestureDetector(

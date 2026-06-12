@@ -80,8 +80,6 @@ class _ProductCardState extends State<ProductCard>
                 child: Center(
                   child: Image.asset(
                     widget.image,
-                    height: 55,
-                    width: 55,
                     fit: BoxFit.contain,
                   ),
                 ),

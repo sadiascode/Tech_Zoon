@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {"name": "ASUS ROG", "price": "\$1399","image": "assets/asuss.jpg", "category": "Laptop"},
     {"name": "iPad Pro 12.9", "price": "\$1099", "image": "assets/ipads.webp", "category": "Tablet"},
     {"name": "Galaxy Tab S9", "price": "\$869","image": "assets/tab.webp","category": "Tablet"},
-    {"name": "Galaxy Tab S9", "price": "\$799","image": "assets/tab.png","category": "Tablet"},
+    {"name": "Galaxy Tab", "price": "\$799","image": "assets/tab.png","category": "Tablet"},
     {"name": "AirPods Pro", "price": "\$249","image": "assets/airpods.png", "category": "Accessories"},
     {"name": "MagSafe Charger", "price": "\$39", "image": "assets/charger.webp", "category": "Accessories"},
     {"name": "Apple Watch Ultra", "price": "\$199", "image": "assets/watch.png", "category": "Accessories"},

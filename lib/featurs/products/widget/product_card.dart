@@ -71,7 +71,7 @@ class _ProductCardState extends State<ProductCard>
           Stack(
             children: [
               Container(
-                height: 135,
+                height: 150,
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: const Color(0xFF252530),
@@ -80,7 +80,8 @@ class _ProductCardState extends State<ProductCard>
                 child: Center(
                   child: Image.asset(
                     widget.image,
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
                 ),
               ),

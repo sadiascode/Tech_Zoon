@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/featurs/products/screen/card_screen.dart';
 import '../../home/widget/custom_search.dart';
 import '../widget/product_card.dart';
 import '../widget/product_filter_bar.dart';
-import '../widget/sort_filter_widget.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({super.key});
@@ -76,7 +76,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
               alignment: Alignment.topRight,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const CardScreen()),
+                      );
+                  },
                   icon: const Icon(Icons.shopping_cart_outlined, 
                     color: Colors.white,
                     size: 24,

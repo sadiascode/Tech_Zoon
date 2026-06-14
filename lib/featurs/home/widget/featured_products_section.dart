@@ -37,11 +37,11 @@ class FeaturedProductsSection extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: MediaQuery.of(context).size.width > 600 ? 4 : 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 0.92,
+                  childAspectRatio: MediaQuery.of(context).size.width > 600 ? 0.8 : ((MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.08) - (MediaQuery.of(context).size.width * 0.03)) / 2) / 245,
                 ),
                 itemBuilder: (context, index) {
                   final product = products[index];

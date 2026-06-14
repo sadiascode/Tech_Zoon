@@ -146,7 +146,7 @@ class _MyprofileScreenState extends State<MyprofileScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
             ],
           ),
         ),

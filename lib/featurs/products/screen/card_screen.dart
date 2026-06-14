@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/featurs/products/screen/checkout_screen.dart';
 import '../../../common/app_shell.dart';
 import '../../../common/cart_state.dart';
+import '../../../common/custom_button.dart';
 
 class CardScreen extends StatefulWidget {
 
@@ -269,27 +271,12 @@ class _CardScreenState extends State<CardScreen> {
               ],
             ),
             const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2D7DFF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  elevation: 0,
-                ),
-                child: const Text(
-                  "Checkout",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+            CustomButton(text:"Checkout",  onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => const CheckoutScreen()),
+              );},
             ),
           ],
         ),
@@ -297,7 +284,7 @@ class _CardScreenState extends State<CardScreen> {
     );
   }
 
-  // popup widget
+  // popup
   void _showDeleteDialog(BuildContext context, int index, String productName, int quantity) {
     showDialog(
       context: context,

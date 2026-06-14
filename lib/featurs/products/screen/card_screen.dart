@@ -43,7 +43,7 @@ class _CardScreenState extends State<CardScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              clearCart();
+              _showClearCartDialog(context);
             },
             icon: Icon(Icons.delete_outline, color: Colors.red.withValues(alpha: 0.7)),
           )
@@ -147,63 +147,67 @@ class _CardScreenState extends State<CardScreen> {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    InkWell(
-                      onTap: () => _showDeleteDialog(context, index, item['name'], item['quantity']),
-                      child: const Icon(Icons.close, color: Colors.white54, size: 20),
+                    // Quantity Controls in the same row as Name
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF252530),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              updateQuantity(index, -1);
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              child: Icon(Icons.remove, color: Colors.white, size: 16),
+                            ),
+                          ),
+                          Text(
+                            "${item['quantity']}",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              updateQuantity(index, 1);
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              child: Icon(Icons.add, color: Colors.white, size: 16),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  "\$${(item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price']).toStringAsFixed(2)}",
-                  style: const TextStyle(
-                    color: Color(0xFF2D7DFF),
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "\$${(item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price']).toStringAsFixed(2)}",
+                      style: const TextStyle(
+                        color: Color(0xFF2D7DFF),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => _showDeleteDialog(context, index, item['name'], item['quantity']),
+                      child: const Icon(Icons.delete_outline, color: Colors.red, size: 22),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 10),
-          // Quantity Controls
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFF252530),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () {
-                    updateQuantity(index, 1);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.all(6),
-                    child: Icon(Icons.add, color: Colors.white, size: 16),
-                  ),
-                ),
-                Text(
-                  "${item['quantity']}",
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    updateQuantity(index, -1);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.all(6),
-                    child: Icon(Icons.remove, color: Colors.white, size: 16),
-                  ),
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );
@@ -313,6 +317,34 @@ class _CardScreenState extends State<CardScreen> {
                 Navigator.pop(context);
               },
               child: const Text("Remove", style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showClearCartDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF1D1D22),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Text("Clear Cart", style: TextStyle(color: Colors.white)),
+          content: const Text("Are you sure you want to remove all items from your cart?", style: TextStyle(color: Colors.white70)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cancel", style: TextStyle(color: Colors.white54)),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent),
+              onPressed: () {
+                clearCart();
+                Navigator.pop(context);
+              },
+              child: const Text("Clear All", style: TextStyle(color: Colors.white)),
             ),
           ],
         );

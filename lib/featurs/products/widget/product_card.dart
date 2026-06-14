@@ -6,7 +6,6 @@ class ProductCard extends StatefulWidget {
   final String image;
   final String tag;
   final double rating;
-  final bool isInCart;
   final VoidCallback onAddToCart;
 
   const ProductCard({
@@ -16,7 +15,6 @@ class ProductCard extends StatefulWidget {
     required this.image,
     this.tag = '',
     this.rating = 4.5,
-    required this.isInCart,
     required this.onAddToCart,
   });
 
@@ -27,6 +25,7 @@ class ProductCard extends StatefulWidget {
 class _ProductCardState extends State<ProductCard>
     with SingleTickerProviderStateMixin {
   bool _isFav = false;
+  bool _showCheck = false;
   late AnimationController _cartAnimController;
   late Animation<double> _cartScaleAnim;
 
@@ -49,9 +48,15 @@ class _ProductCardState extends State<ProductCard>
   }
 
   void _handleCartTap() async {
+    setState(() => _showCheck = true);
     await _cartAnimController.forward();
     await _cartAnimController.reverse();
     widget.onAddToCart();
+    
+    await Future.delayed(const Duration(milliseconds: 1000));
+    if (mounted) {
+      setState(() => _showCheck = false);
+    }
   }
 
   @override
@@ -190,13 +195,13 @@ class _ProductCardState extends State<ProductCard>
                           duration: const Duration(milliseconds: 250),
                           padding: const EdgeInsets.all(7),
                           decoration: BoxDecoration(
-                            color: widget.isInCart
+                            color: _showCheck
                                 ? Colors.green
                                 : const Color(0xFF2D7DFF),
                             borderRadius: BorderRadius.circular(9),
                           ),
                           child: Icon(
-                            widget.isInCart
+                            _showCheck
                                 ? Icons.check_rounded
                                 : Icons.add_shopping_cart_rounded,
                             color: Colors.white,

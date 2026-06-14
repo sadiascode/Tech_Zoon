@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../common/app_shell.dart';
-
+import '../../../common/cart_state.dart';
 
 class CardScreen extends StatefulWidget {
 
@@ -11,31 +11,6 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
-  // Dummy data for cart
-  final List<Map<String, dynamic>> cartItems = [
-    {
-      "name": "Sony Wireless Headphones",
-      "price": 299.99,
-      "image": "assets/images/product1.png",
-      "quantity": 1,
-    },
-    {
-      "name": "Apple MacBook Pro 14\"",
-      "price": 1999.00,
-      "image": "assets/images/product2.png",
-      "quantity": 2,
-    },
-    {
-      "name": "Logitech MX Master 3S",
-      "price": 99.99,
-      "image": "assets/images/product3.png",
-      "quantity": 1,
-    },
-  ];
-
-  double get subtotal => cartItems.fold(0, (sum, item) => sum + (item['price'] * item['quantity']));
-  double get tax => subtotal * 0.05;
-  double get total => subtotal + tax;
 
   @override
   Widget build(BuildContext context) {
@@ -68,16 +43,17 @@ class _CardScreenState extends State<CardScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              setState(() {
-                cartItems.clear();
-              });
+              clearCart();
             },
             icon: Icon(Icons.delete_outline, color: Colors.white.withValues(alpha: 0.7)),
           )
         ],
       ),
-      body: cartItems.isEmpty
-          ? Center(
+      body: ValueListenableBuilder<List<Map<String, dynamic>>>(
+        valueListenable: globalCartItems,
+        builder: (context, cartItems, child) {
+          return cartItems.isEmpty
+              ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -95,22 +71,24 @@ class _CardScreenState extends State<CardScreen> {
                 ],
               ),
             )
-          : Column(
-              children: [
-                Expanded(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(16),
-                    itemCount: cartItems.length,
-                    separatorBuilder: (context, index) => const SizedBox(height: 16),
-                    itemBuilder: (context, index) {
-                      final item = cartItems[index];
-                      return _buildCartItem(item, index);
-                    },
-                  ),
-                ),
-                _buildCheckoutBottomBar(),
-              ],
-            ),
+              : Column(
+                  children: [
+                    Expanded(
+                      child: ListView.separated(
+                        padding: const EdgeInsets.all(16),
+                        itemCount: cartItems.length,
+                        separatorBuilder: (context, index) => const SizedBox(height: 16),
+                        itemBuilder: (context, index) {
+                          final item = cartItems[index];
+                          return _buildCartItem(item, index);
+                        },
+                      ),
+                    ),
+                    _buildCheckoutBottomBar(cartItems),
+                  ],
+                );
+        },
+      ),
     );
   }
 
@@ -158,7 +136,7 @@ class _CardScreenState extends State<CardScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  "\$${item['price'].toStringAsFixed(2)}",
+                  "\$${(item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price']).toStringAsFixed(2)}",
                   style: const TextStyle(
                     color: Color(0xFF2D7DFF),
                     fontSize: 16,
@@ -180,9 +158,7 @@ class _CardScreenState extends State<CardScreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      item['quantity']++;
-                    });
+                    updateQuantity(index, 1);
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(6),
@@ -199,13 +175,7 @@ class _CardScreenState extends State<CardScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      if (item['quantity'] > 1) {
-                        item['quantity']--;
-                      } else {
-                        cartItems.removeAt(index);
-                      }
-                    });
+                    updateQuantity(index, -1);
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(6),
@@ -220,7 +190,14 @@ class _CardScreenState extends State<CardScreen> {
     );
   }
 
-  Widget _buildCheckoutBottomBar() {
+  Widget _buildCheckoutBottomBar(List<Map<String, dynamic>> cartItems) {
+    double subtotal = cartItems.fold(0, (sum, item) {
+      double price = item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price'];
+      return sum + (price * item['quantity']);
+    });
+    double tax = subtotal * 0.05;
+    double total = subtotal + tax;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
       decoration: BoxDecoration(

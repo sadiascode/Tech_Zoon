@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/featurs/products/screen/card_screen.dart';
+import '../../../common/cart_state.dart';
 import '../../home/widget/custom_search.dart';
 import '../widget/product_card.dart';
 import '../widget/product_filter_bar.dart';
@@ -50,7 +51,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
         .toList();
   }
 
-  final Set<String> cartItems = {};
 
   @override
   Widget build(BuildContext context) {
@@ -88,24 +88,31 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     size: 24,
                   ),
                 ),
-                if (cartItems.isNotEmpty)
+                if (true) // Keep alignment consistent
                   Positioned(
                     right: 12,
                     top: 10,
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF2D7DFF),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Text(
-                        cartItems.length.toString(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    child: ValueListenableBuilder<List<Map<String, dynamic>>>(
+                      valueListenable: globalCartItems,
+                      builder: (context, cart, child) {
+                        if (cart.isEmpty) return const SizedBox.shrink();
+                        
+                        return Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: const BoxDecoration(
+                            color: Color(0xFF2D7DFF),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text(
+                            cart.length.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
               ],
@@ -158,15 +165,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   image: product["image"],
                   tag: product["tag"],
                   rating: product["rating"],
-                  isInCart: cartItems.contains(product["name"]),
                   onAddToCart: () {
-                    setState(() {
-                      if (cartItems.contains(product["name"])) {
-                        cartItems.remove(product["name"]);
-                      } else {
-                        cartItems.add(product["name"]);
-                      }
-                    });
+                    addToCart(product);
                   },
                 );
               },

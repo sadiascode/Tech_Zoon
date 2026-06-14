@@ -52,41 +52,29 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           double tax = subtotal * 0.05;
           double total = subtotal + tax;
 
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildSectionTitle("Shipping Address"),
-                const SizedBox(height: 12),
-                _buildAddressCard(),
-                const SizedBox(height: 24),
-                
-                _buildSectionTitle("Payment Method"),
-                const SizedBox(height: 12),
-                _buildPaymentMethods(),
-                const SizedBox(height: 24),
-
-                _buildSectionTitle("Order Summary"),
-                const SizedBox(height: 12),
-                _buildOrderSummary(subtotal, tax, total),
-                const SizedBox(height: 30),
-
-                CustomButton(
-                  text: "Place Order",
-                  onTap: () {
-                    if (cartItems.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Your cart is empty!"), backgroundColor: Colors.redAccent),
-                      );
-                      return;
-                    }
-                    _showOrderSuccessDialog();
-                  },
+          return Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildSectionTitle("Shipping Address"),
+                      const SizedBox(height: 12),
+                      _buildAddressCard(),
+                      const SizedBox(height: 24),
+                      
+                      _buildSectionTitle("Payment Method"),
+                      const SizedBox(height: 12),
+                      _buildPaymentMethods(),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 20),
-              ],
-            ),
+              ),
+              _buildFixedBottomBar(subtotal, tax, total, cartItems),
+            ],
           );
         },
       ),
@@ -148,21 +136,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 2),
                 Text(
-                  "123 Main Street, New York, NY 10001\nUnited States",
+                  "Banasree Dhaka, Bangladesh",
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 14,
                     height: 1.4,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  "+1 234 567 8900",
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.7),
-                    fontSize: 14,
                   ),
                 ),
               ],
@@ -229,46 +209,68 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  Widget _buildOrderSummary(double subtotal, double tax, double total) {
+  Widget _buildFixedBottomBar(double subtotal, double tax, double total, List<Map<String, dynamic>> cartItems) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1D1D22),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.white.withValues(alpha: 0.05),
-          width: 1,
+        color: const Color(0xFF121215),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Subtotal", style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14)),
-              Text("\$${subtotal.toStringAsFixed(2)}", style: const TextStyle(color: Colors.white, fontSize: 14)),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Tax (5%)", style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14)),
-              Text("\$${tax.toStringAsFixed(2)}", style: const TextStyle(color: Colors.white, fontSize: 14)),
-            ],
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Divider(color: Colors.white12, height: 1),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text("Total", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-              Text("\$${total.toStringAsFixed(2)}", style: const TextStyle(color: Color(0xFF2D7DFF), fontSize: 20, fontWeight: FontWeight.bold)),
-            ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 10,
+            offset: const Offset(0, -5),
           ),
         ],
+      ),
+      child: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Subtotal", style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14)),
+                Text("\$${subtotal.toStringAsFixed(2)}", style: const TextStyle(color: Colors.white, fontSize: 14)),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Tax (5%)", style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14)),
+                Text("\$${tax.toStringAsFixed(2)}", style: const TextStyle(color: Colors.white, fontSize: 14)),
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 12),
+              child: Divider(color: Colors.white12, height: 1),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Total", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                Text("\$${total.toStringAsFixed(2)}", style: const TextStyle(color: Color(0xFF2D7DFF), fontSize: 20, fontWeight: FontWeight.bold)),
+              ],
+            ),
+            const SizedBox(height: 20),
+            CustomButton(
+              text: "Place Order",
+              onTap: () {
+                if (cartItems.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Your cart is empty!"), backgroundColor: Colors.redAccent),
+                  );
+                  return;
+                }
+                _showOrderSuccessDialog();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -281,63 +283,81 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         return AlertDialog(
           backgroundColor: const Color(0xFF1D1D22),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          contentPadding: const EdgeInsets.all(24),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.green.withValues(alpha: 0.1),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.check_circle, color: Colors.green, size: 60),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                "Order Successful!",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                "Your order has been placed successfully. You will receive a confirmation email shortly.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.7),
-                  fontSize: 14,
-                  height: 1.5,
-                ),
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2D7DFF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+          contentPadding: EdgeInsets.zero,
+          content: Container(
+            padding: const EdgeInsets.all(24),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.green.withValues(alpha: 0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.check_circle, color: Colors.green, size: 60),
                     ),
-                  ),
-                  onPressed: () {
-                    clearCart();
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                  },
-                  child: const Text(
-                    "Back to Home",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Order Successful!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                    const SizedBox(height: 12),
+                    Text(
+                      "Your order has been placed successfully. You will receive a confirmation email shortly.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.7),
+                        fontSize: 14,
+                        height: 1.5,
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF2D7DFF),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () {
+                          clearCart();
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                        },
+                        child: const Text(
+                          "Back to Home",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Positioned(
+                  right: -10,
+                  top: -10,
+                  child: IconButton(
+                    icon: const Icon(Icons.close, color: Colors.white54, size: 24),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

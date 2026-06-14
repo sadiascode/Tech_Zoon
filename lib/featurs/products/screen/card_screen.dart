@@ -45,7 +45,7 @@ class _CardScreenState extends State<CardScreen> {
             onPressed: () {
               clearCart();
             },
-            icon: Icon(Icons.delete_outline, color: Colors.white.withValues(alpha: 0.7)),
+            icon: Icon(Icons.delete_outline, color: Colors.red.withValues(alpha: 0.7)),
           )
         ],
       ),
@@ -105,7 +105,7 @@ class _CardScreenState extends State<CardScreen> {
       ),
       child: Row(
         children: [
-          // Product Image Placeholder
+          // Product Image
           Container(
             height: 80,
             width: 80,
@@ -113,8 +113,15 @@ class _CardScreenState extends State<CardScreen> {
               color: const Color(0xFF252530),
               borderRadius: BorderRadius.circular(13),
             ),
-            child: const Center(
-              child: Icon(Icons.image_outlined, color: Colors.white54, size: 30),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(13),
+              child: Image.asset(
+                item['image'],
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Center(child: Icon(Icons.image_outlined, color: Colors.white54, size: 30));
+                },
+              ),
             ),
           ),
           const SizedBox(width: 16),
@@ -124,15 +131,27 @@ class _CardScreenState extends State<CardScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  item['name'],
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        item['name'],
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    InkWell(
+                      onTap: () => _showDeleteDialog(context, index, item['name'], item['quantity']),
+                      child: const Icon(Icons.close, color: Colors.white54, size: 20),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -153,7 +172,7 @@ class _CardScreenState extends State<CardScreen> {
               color: const Color(0xFF252530),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Column(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
@@ -270,6 +289,34 @@ class _CardScreenState extends State<CardScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void _showDeleteDialog(BuildContext context, int index, String productName, int quantity) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF1D1D22),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Text("Remove Item", style: TextStyle(color: Colors.white)),
+          content: Text("Are you sure you want to remove $productName from your cart?", style: TextStyle(color: Colors.white70)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cancel", style: TextStyle(color: Colors.white54)),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent),
+              onPressed: () {
+                updateQuantity(index, -quantity); 
+                Navigator.pop(context);
+              },
+              child: const Text("Remove", style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
     );
   }
 }

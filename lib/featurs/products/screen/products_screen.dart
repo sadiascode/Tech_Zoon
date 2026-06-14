@@ -54,6 +54,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xFF0D0D0F),
       appBar: AppBar(
@@ -121,57 +122,57 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ],
       ),
 
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 10),
-
-            SearchField(
-              onChanged: (String p1) {},
-              hintText: 'Search Products...',
-            ),
-
-            const SizedBox(height: 20),
-
-            ProductFilterBar(
-              filters: categories,
-              selectedIndex: selectedCategory,
-              onFilterSelected: (index) {
-                setState(() {
-                  selectedCategory = index;
-                });
-              },
-            ),
-
-            const SizedBox(height: 20),
-
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.92,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width * 0.04, 
+            vertical: size.height * 0.01,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: size.height * 0.01),
+              SearchField(
+                onChanged: (String p1) {},
+                hintText: 'Search Products...',
               ),
-              itemCount: filteredProducts.length,
-              itemBuilder: (context, index) {
-                final product = filteredProducts[index];
-                return ProductCard(
-                  name: product["name"],
-                  price: product["price"],
-                  image: product["image"],
-                  tag: product["tag"],
-                  rating: product["rating"],
-                  onAddToCart: () {
-                    addToCart(product);
-                  },
-                );
-              },
-            ),
-          ],
+              SizedBox(height: size.height * 0.02),
+              ProductFilterBar(
+                filters: categories,
+                selectedIndex: selectedCategory,
+                onFilterSelected: (index) {
+                  setState(() {
+                    selectedCategory = index;
+                  });
+                },
+              ),
+              SizedBox(height: size.height * 0.02),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: size.width > 600 ? 4 : 2,
+                  childAspectRatio: size.width > 600 ? 0.8 : ((size.width - (size.width * 0.08) - (size.width * 0.03)) / 2) / 270,
+                  crossAxisSpacing: size.width * 0.03,
+                  mainAxisSpacing: size.height * 0.015,
+                ),
+                itemCount: filteredProducts.length,
+                itemBuilder: (context, index) {
+                  final product = filteredProducts[index];
+                  return ProductCard(
+                    name: product["name"],
+                    price: product["price"],
+                    image: product["image"],
+                    tag: product["tag"],
+                    rating: product["rating"],
+                    onAddToCart: () {
+                      addToCart(product);
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

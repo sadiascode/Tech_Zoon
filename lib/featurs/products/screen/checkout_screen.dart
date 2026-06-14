@@ -15,6 +15,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SubPageScaffold(
       parentTabIndex: 1,
       backgroundColor: const Color(0xFF0D0D0F),
@@ -42,41 +43,43 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           ),
         ),
       ),
-      body: ValueListenableBuilder<List<Map<String, dynamic>>>(
-        valueListenable: globalCartItems,
-        builder: (context, cartItems, child) {
-          double subtotal = cartItems.fold(0, (sum, item) {
-            double price = item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price'];
-            return sum + (price * item['quantity']);
-          });
-          double tax = subtotal * 0.05;
-          double total = subtotal + tax;
+      body: SafeArea(
+        child: ValueListenableBuilder<List<Map<String, dynamic>>>(
+          valueListenable: globalCartItems,
+          builder: (context, cartItems, child) {
+            double subtotal = cartItems.fold(0, (sum, item) {
+              double price = item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price'];
+              return sum + (price * item['quantity']);
+            });
+            double tax = subtotal * 0.05;
+            double total = subtotal + tax;
 
-          return Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildSectionTitle("Shipping Address"),
-                      const SizedBox(height: 12),
-                      _buildAddressCard(),
-                      const SizedBox(height: 24),
-                      
-                      _buildSectionTitle("Payment Method"),
-                      const SizedBox(height: 12),
-                      _buildPaymentMethods(),
-                      const SizedBox(height: 24),
-                    ],
+            return Column(
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.all(size.width * 0.04),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildSectionTitle("Shipping Address"),
+                        SizedBox(height: size.height * 0.015),
+                        _buildAddressCard(),
+                        SizedBox(height: size.height * 0.03),
+                        
+                        _buildSectionTitle("Payment Method"),
+                        SizedBox(height: size.height * 0.015),
+                        _buildPaymentMethods(),
+                        SizedBox(height: size.height * 0.03),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              _buildFixedBottomBar(subtotal, tax, total, cartItems),
-            ],
-          );
-        },
+                _buildFixedBottomBar(subtotal, tax, total, cartItems),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/app_shell.dart';
+
 class BannerWidget extends StatelessWidget {
   const BannerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+            builder: (context) => const AppShell(initialIndex: 1),
+          ),
+              (route) => false,
+        );
+      },
+      child:Container(
       height: 175,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -97,6 +108,7 @@ class BannerWidget extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

@@ -60,7 +60,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   const Text(
-                    "Tech Zoon",
+                    "Tech Zone",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 26,

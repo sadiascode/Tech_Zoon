@@ -16,6 +16,7 @@ class _CardScreenState extends State<CardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SubPageScaffold(
       parentTabIndex: 1,
       backgroundColor: const Color(0xFF0D0D0F),
@@ -51,45 +52,47 @@ class _CardScreenState extends State<CardScreen> {
           )
         ],
       ),
-      body: ValueListenableBuilder<List<Map<String, dynamic>>>(
-        valueListenable: globalCartItems,
-        builder: (context, cartItems, child) {
-          return cartItems.isEmpty
-              ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.shopping_cart_outlined, size: 80, color: Colors.white.withValues(alpha: 0.2)),
-                  const SizedBox(height: 20),
-                  const Text(
-                    "Your cart is empty",
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    "Looks like you haven't added anything yet.",
-                    style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 14),
-                  ),
-                ],
-              ),
-            )
-              : Column(
+      body: SafeArea(
+        child: ValueListenableBuilder<List<Map<String, dynamic>>>(
+          valueListenable: globalCartItems,
+          builder: (context, cartItems, child) {
+            return cartItems.isEmpty
+                ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: ListView.separated(
-                        padding: const EdgeInsets.all(16),
-                        itemCount: cartItems.length,
-                        separatorBuilder: (context, index) => const SizedBox(height: 16),
-                        itemBuilder: (context, index) {
-                          final item = cartItems[index];
-                          return _buildCartItem(item, index);
-                        },
-                      ),
+                    Icon(Icons.shopping_cart_outlined, size: 80, color: Colors.white.withValues(alpha: 0.2)),
+                    SizedBox(height: size.height * 0.025),
+                    const Text(
+                      "Your cart is empty",
+                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
                     ),
-                    _buildCheckoutBottomBar(cartItems),
+                    SizedBox(height: size.height * 0.015),
+                    Text(
+                      "Looks like you haven't added anything yet.",
+                      style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 14),
+                    ),
                   ],
-                );
-        },
+                ),
+              )
+                : Column(
+                    children: [
+                      Expanded(
+                        child: ListView.separated(
+                          padding: EdgeInsets.all(size.width * 0.04),
+                          itemCount: cartItems.length,
+                          separatorBuilder: (context, index) => SizedBox(height: size.height * 0.02),
+                          itemBuilder: (context, index) {
+                            final item = cartItems[index];
+                            return _buildCartItem(item, index);
+                          },
+                        ),
+                      ),
+                      _buildCheckoutBottomBar(cartItems),
+                    ],
+                  );
+          },
+        ),
       ),
     );
   }

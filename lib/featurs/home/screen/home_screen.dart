@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xFF121215),
       appBar: AppBar(
@@ -83,58 +84,50 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-
-            SearchField(
-              onChanged: (String val) {},
-              hintText: 'Search Mobile, Laptop...',
-            ),
-
-            const SizedBox(height: 20),
-
-
-            const BannerWidget(),
-
-            const SizedBox(height: 25),
-
-
-            const Text(
-              "Categories",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 0.3,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width * 0.04, 
+            vertical: size.height * 0.01,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SearchField(
+                onChanged: (String val) {},
+                hintText: 'Search Mobile, Laptop...',
               ),
-            ),
-
-            const SizedBox(height: 15),
-
-
-            CategorySection(
-              categories: categories,
-              selectedIndex: _selectedCategoryIndex,
-              onCategorySelected: (index) {
-                setState(() {
-                  _selectedCategoryIndex = index;
-                });
-              },
-            ),
-
-            const SizedBox(height: 25),
-
-            FeaturedProductsSection(
-              sectionTitle:
-                  "${categories[_selectedCategoryIndex]["title"]} Products",
-              products: filteredProducts,
-            ),
-
-            const SizedBox(height: 20),
-          ],
+              SizedBox(height: size.height * 0.02),
+              const BannerWidget(),
+              SizedBox(height: size.height * 0.025),
+              const Text(
+                "Categories",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.3,
+                ),
+              ),
+              SizedBox(height: size.height * 0.015),
+              CategorySection(
+                categories: categories,
+                selectedIndex: _selectedCategoryIndex,
+                onCategorySelected: (index) {
+                  setState(() {
+                    _selectedCategoryIndex = index;
+                  });
+                },
+              ),
+              SizedBox(height: size.height * 0.025),
+              FeaturedProductsSection(
+                sectionTitle:
+                    "${categories[_selectedCategoryIndex]["title"]} Products",
+                products: filteredProducts,
+              ),
+              SizedBox(height: size.height * 0.02),
+            ],
+          ),
         ),
       ),
     );

@@ -213,6 +213,7 @@ class _CardScreenState extends State<CardScreen> {
     );
   }
 
+  // checkout section widget
   Widget _buildCheckoutBottomBar(List<Map<String, dynamic>> cartItems) {
     double subtotal = cartItems.fold(0, (sum, item) {
       double price = item['price'] is String ? double.tryParse(item['price']) ?? 0.0 : item['price'];
@@ -296,6 +297,7 @@ class _CardScreenState extends State<CardScreen> {
     );
   }
 
+  // popup widget
   void _showDeleteDialog(BuildContext context, int index, String productName, int quantity) {
     showDialog(
       context: context,
